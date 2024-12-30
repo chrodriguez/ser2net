@@ -1,0 +1,13 @@
+#!/bin/sh
+set -e
+
+if [ -z "$CONFFILE" ]; then
+  echo CONFFILE must be set
+  exit 1
+fi
+if [ ! -f $CONFFILE ]; then
+  echo $CONFFILE must exists
+  exit 1
+fi
+
+/usr/sbin/ser2net -n -c $CONFFILE
